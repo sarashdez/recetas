@@ -15,7 +15,6 @@ export class MaestroPage {
 
   constructor(public navCtrl: NavController,
               public param: NavParams,
-              private platform  : Platform,
               private angFireDatabase : AngularFireDatabase) {
 
     //this.recetas = this.angFireDatabase.list('/recetas')
