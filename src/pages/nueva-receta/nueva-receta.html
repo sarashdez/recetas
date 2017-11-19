@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only>
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      Nueva receta
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page5" style="background-color:#F6C33B;">
+  <form id="nuevaReceta-form3">
+    <ion-item id="nuevaReceta-select1">
+      <ion-label>
+        Categoría
+      </ion-label>
+      <ion-select name="categoria">
+        <ion-option>
+          Entrantes
+        </ion-option>
+        <ion-option>
+          Platos principales
+        </ion-option>
+        <ion-option>
+          Postres
+        </ion-option>
+        <ion-option>
+          Bebidas
+        </ion-option>
+      </ion-select>
+    </ion-item>
+    <div class="spacer" style="width:300px;height:18px;" id="nuevaReceta-spacer10"></div>
+    <ion-item id="nuevaReceta-input9">
+      <ion-label>
+        Nombre
+      </ion-label>
+      <ion-input type="text" placeholder="" name="nombreReceta"></ion-input>
+    </ion-item>
+    <div class="spacer" style="width:300px;height:18px;" id="nuevaReceta-spacer11"></div>
+    <ion-item id="nuevaReceta-input10">
+      <ion-label>
+        Ingredientes
+      </ion-label>
+      <ion-input type="text" placeholder="" name="ingredientes"></ion-input>
+    </ion-item>
+    <div class="spacer" style="width:300px;height:18px;" id="nuevaReceta-spacer12"></div>
+    <ion-item id="nuevaReceta-input11">
+      <ion-label>
+        Preparacion
+      </ion-label>
+      <ion-input type="text" placeholder="" name="preparacion"></ion-input>
+    </ion-item>
+  </form>
+  <button id="nuevaReceta-button11" ion-button color="light" block style="font-weight:500;">
+    Añadir receta
+  </button>
+</ion-content>

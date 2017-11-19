@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Mis Recetas
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding style="background:url(assets/img/A9Rgnah4Sami3IwuH1ZN_background-login.PNG) no-repeat center;background-size:cover;" id="page2">
+  <form id="misRecetas-form1"  [formGroup]="form" >
+    <div class="spacer" style="width:300px;height:14px;"></div>
+    <ion-list>
+      <ion-item id="misRecetas-email">
+        <ion-label>
+          Email
+        </ion-label>
+        <ion-input type="email" formControlName="email"></ion-input>
+      </ion-item>
+      <ion-item id="misRecetas-password">
+        <ion-label>
+          Contraseña
+        </ion-label>
+        <ion-input type="password" formControlName="password"></ion-input>
+      </ion-item>
+    </ion-list>
+    <div class="spacer" style="width:300px;height:26px;"></div>
+    <button id="misRecetas-login" ion-button color="stable" block on-click="logIn()" >
+      Iniciar sesión
+    </button>
+    <button id="misRecetas-signin" ion-button color="stable" block on-click="crearCuenta()" >
+      Crear cuenta
+    </button>
+  </form>
+</ion-content>
+
+
+/*
+href-inappbrowser="/iniciarsesion"
+(ngSubmit) = "logIn()"
+*/

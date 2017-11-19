@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only>
+        <ion-icon name="refresh"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      Categorías
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only>
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding style="background:url(assets/img/lwn3JPPaT2mTrQfEIBdT_background-login.PNG) no-repeat center;background-size:cover;" id="page4">
+  <ion-list id="categorias-list">
+    <ion-item color="none" id="entrantes" (click)="goToMaestro('Entrantes')">
+      Entrantes
+    </ion-item>
+    <ion-item color="none" id="principales" (click)="goToMaestro('Platos Principales')">
+      Platos principales
+    </ion-item>
+    <ion-item color="none" id="postres" (click)="goToMaestro('Postres')">
+      Postres
+    </ion-item>
+    <ion-item color="none" id="bebidas" (click)="goToMaestro('Bebidas')">
+      Bebidas
+    </ion-item>
+  </ion-list>
+</ion-content>

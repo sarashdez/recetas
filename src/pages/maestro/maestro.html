@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-navbar>
+    <ion-buttons start>
+      <button ion-button icon-only>
+        <ion-icon name="arrow-back"></ion-icon>
+      </button>
+    </ion-buttons>
+    <ion-title>
+      maestro
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page6" style="background-color:#F6C33B;">
+  <ion-list>
+    <ion-card class="recipes" text-wrap *ngFor="let receta of recetas | async">
+
+      <ion-item color="none" (click)="goToDetalle()">
+        <h2 id="nombreReceta">{{ receta.Nombre }}</h2>
+      </ion-item>
+
+    </ion-card>
+  </ion-list>
+</ion-content>
+
+<!--
+
+<ion-item color="none" id="maestro-list-item4">
+      Item 1
+    </ion-item>
+    <ion-item color="none" id="maestro-list-item5">
+      Item 2
+    </ion-item>
+    <ion-item color="none" id="maestro-list-item6">
+      Item 3
+    </ion-item>
+
+-->
