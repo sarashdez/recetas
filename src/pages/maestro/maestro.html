@@ -1,12 +1,7 @@
 <ion-header>
   <ion-navbar>
-    <ion-buttons start>
-      <button ion-button icon-only>
-        <ion-icon name="arrow-back"></ion-icon>
-      </button>
-    </ion-buttons>
     <ion-title>
-      maestro
+      {{ categoria }}
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -14,7 +9,7 @@
   <ion-list>
     <ion-card class="recipes" text-wrap *ngFor="let receta of recetas | async">
 
-      <ion-item color="none" (click)="goToDetalle()">
+      <ion-item color="none" (click)="goToDetalle(receta)">
         <h2 id="nombreReceta">{{ receta.Nombre }}</h2>
       </ion-item>
 
@@ -22,16 +17,3 @@
   </ion-list>
 </ion-content>
 
-<!--
-
-<ion-item color="none" id="maestro-list-item4">
-      Item 1
-    </ion-item>
-    <ion-item color="none" id="maestro-list-item5">
-      Item 2
-    </ion-item>
-    <ion-item color="none" id="maestro-list-item6">
-      Item 3
-    </ion-item>
-
--->

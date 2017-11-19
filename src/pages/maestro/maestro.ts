@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import {NavController, NavParams, Platform} from 'ionic-angular';
 import { FirebaseListObservable, AngularFireDatabase  } from 'angularfire2/database';
+import {DetallePage} from "../detalle/detalle";
 //import { FirebaseListObservable} from "angularfire2/database-deprecated";
 
 @Component({
@@ -19,21 +20,22 @@ export class MaestroPage {
 
     //this.recetas = this.angFireDatabase.list('/recetas')
     this.categoria = param.get("categoriaSeleccionada");
-    console.log('constructorMaestro Parametro recibido: ' + param);
+    console.log('constructorMaestro Parametro recibido: ' + this.categoria);
     this.recetas = this.angFireDatabase.list('/recetas',{
       query:{
         orderByChild: 'Categoria',
         equalTo: this.categoria
       }
     });
-    console.log('Recetas despues de query');
   }
 
 
-
-
-  goToDetalle() {
+  goToDetalle(receta) {
     console.log("Metodo goToDetalle");
+    //console.log("Receta seleccionada: " + receta.toString());
+    this.navCtrl.push(DetallePage, {
+      recetaSeleccionada: receta})
   }
+
 
 }

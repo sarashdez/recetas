@@ -1,12 +1,7 @@
 <ion-header>
   <ion-navbar>
-    <ion-buttons start>
-      <button ion-button icon-only>
-        <ion-icon name="arrow-back"></ion-icon>
-      </button>
-    </ion-buttons>
     <ion-title>
-      detalle
+      {{ receta.Nombre }}
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -16,10 +11,7 @@
   </h4>
   <div id="detalle-markdown2" class="show-list-numbers-and-dots">
     <p style="color:#000000;">
-      Some friendly
-      <strong>
-        markdown
-      </strong>
+      {{ receta.Ingredientes }}
     </p>
   </div>
   <h4 id="detalle-heading2" style="color:#000000;font-weight:600;">
@@ -27,10 +19,10 @@
   </h4>
   <div id="detalle-markdown3" class="show-list-numbers-and-dots">
     <p style="color:#000000;">
-      Some friendly
-      <strong>
-        markdown
-      </strong>
+      {{ receta.Procedimiento }}
     </p>
   </div>
+  <button id="detalle-button1" ion-button color="light" block style="font-weight:500;" on-click="deleteReceta()">
+    Eliminar Receta
+  </button>
 </ion-content>
