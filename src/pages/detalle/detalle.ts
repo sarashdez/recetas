@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {NavController, NavParams} from 'ionic-angular';
+import {AlertController, NavController, NavParams} from 'ionic-angular';
 import {AngularFireDatabase, FirebaseListObservable} from "angularfire2/database";
 
 @Component({
@@ -13,6 +13,7 @@ export class DetallePage {
 
   constructor(public navCtrl: NavController,
               param: NavParams,
+              public alertCtrl: AlertController,
               private angFireDatabase : AngularFireDatabase) {
     this.receta = param.get("recetaSeleccionada");
     console.log("constructorDetalle Parametro recibido: " + this.receta.Nombre);
@@ -30,6 +31,30 @@ export class DetallePage {
       }, error => {
       console.log(error);
     });
+  }
+
+  confirmacionEliminar() {
+    console.log("Metodo confirmacionEliminar()");
+    let confirm = this.alertCtrl.create({
+      title: 'Eliminar Receta',
+      message: '¿Seguro que quieres eliminar esta receta? Una vez eliminada no podrás recuperarla.',
+      buttons: [
+        {
+          text: 'Mejor no',
+          handler: () => {
+            console.log('"Mejor no" pulsado');
+          }
+        },
+        {
+          text: 'Sí, elimínala',
+          handler: () => {
+            console.log('"Sí, elimínala" pulsado');
+            this.deleteReceta();
+          }
+        }
+      ]
+    });
+    confirm.present();
   }
 
 }
