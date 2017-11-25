@@ -15,7 +15,8 @@ import {NuevaRecetaPage} from "../pages/nueva-receta/nueva-receta";
 import {MaestroPage} from "../pages/maestro/maestro";
 import {DetallePage} from "../pages/detalle/detalle";
 import {environment} from "../environments/environment";
-
+import {SQLite} from "@ionic-native/sqlite";
+import {DatabaseService} from "../providers/sqlite/sql_database";
 
 @NgModule({
   declarations: [
@@ -47,7 +48,9 @@ import {environment} from "../environments/environment";
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AutenticacionProvider
+    AutenticacionProvider,
+    SQLite,
+    DatabaseService
   ]
 })
 export class AppModule {}

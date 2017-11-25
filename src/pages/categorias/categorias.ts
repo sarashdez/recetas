@@ -11,31 +11,14 @@ import {DatabaseService} from "../../providers/sqlite/sql_database";
 })
 export class CategoriasPage {
 
-  //sincronizar
   public recetas  : FirebaseListObservable<any[]>;
-  //objeto receta
- /*
-  private receta : Object = {
-      Categoria: "",
-      Ingredientes: "",
-      Nombre: "",
-      Procedimiento: ""
-  };
 
-*/
   constructor(public navCtrl: NavController,
               public alertCtrl: AlertController,
               public loadingCtrl: LoadingController,
               private angFireDatabase : AngularFireDatabase,
               private sqlDB : DatabaseService) {
     this.recetas = this.angFireDatabase.list('/recetas', {preserveSnapshot: true});
-      /*this.recetas
-        .subscribe(receta => {
-          receta.forEach(receta => {
-            console.log(receta.key);
-            console.log(receta.val());
-          });
-        })*/
   }
 
   goToMaestro(categoria: string) {
@@ -47,13 +30,24 @@ export class CategoriasPage {
 
   goToNuevaReceta() {
     console.log("Metodo goToNuevaReceta");
-    this.navCtrl.push(NuevaRecetaPage);
+
+    let alert = this.alertCtrl.create ({
+      title: '¡Aviso!',
+      subTitle: 'Solo se podrán añadir recetas si dispones de conexión a Internet.',
+      buttons: [{
+        text: 'Entendido',
+        handler: data => {
+          this.navCtrl.push(NuevaRecetaPage);
+        }
+      }]
+    });
+
+    alert.present();
   }
 
   sincronizarDatos() {
     console.log("Metodo sincronizarDatos");
     this.presentarLoading();
-    let index  = 0;
     //Recorrer el array de recetas, coger cada objeto(receta) y añadirlo a la base de datos sqlite.
     this.recetas.subscribe(receta => {
       this.sqlDB.addRecetaDB(receta);
@@ -65,7 +59,7 @@ export class CategoriasPage {
     console.log("Metodo mostrarConfirmacion()");
     let confirm = this.alertCtrl.create({
       title: 'Sincronizar datos',
-      message: 'Esta app necesita acceso a la red para poder acceder a las recetas almacenadas. Para utilizar la app sin conexión debe sincronizar los datos primero.',
+      message: '¿Desea almacenar de forma local las recetas? Seguirá necesitando conexión a la red para poder utilizar correctamente la app.',
       buttons: [
         {
           text: 'Ahora no',
@@ -93,8 +87,15 @@ export class CategoriasPage {
     loader.present();
   }
 
+  alertaSinConexion() {
+    let alert = this.alertCtrl.create ({
+      title: '¡Aviso!',
+      subTitle: 'No se pueden añadir recetas si no dispones de conexión a la red.',
+      buttons: ['Entendido']
+    });
 
+    alert.present();
 
-
+  }
 
 }

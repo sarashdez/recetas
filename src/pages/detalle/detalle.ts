@@ -37,7 +37,7 @@ export class DetallePage {
     console.log("Metodo confirmacionEliminar()");
     let confirm = this.alertCtrl.create({
       title: 'Eliminar Receta',
-      message: '¿Seguro que quieres eliminar esta receta? Una vez eliminada no podrás recuperarla.',
+      message: '¿Seguro que quieres eliminar esta receta? Una vez eliminada no podrás recuperarla. (Solo podrás eliminar la receta si dispones de conexión a Internet).',
       buttons: [
         {
           text: 'Mejor no',
